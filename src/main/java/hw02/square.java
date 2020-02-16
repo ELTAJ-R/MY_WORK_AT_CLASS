@@ -36,9 +36,6 @@ public class square {
                       if (width1 < square1.length || height1 < square.length) {
 
                           if(width1==WidthInput&&height1==HeightInput){square[width1][height1] = " X|";}
-                          else {
-                              square[width1][height1] = " -|";
-                          }
 
 
 
@@ -52,12 +49,8 @@ public class square {
                   for (int height1 = 0; height1 < square1.length; height1++) {
                       if (width1 < square1.length || height1 < square.length) {
 
-                          if(width1==WidthInput&&height1==HeightInput){square[width1][height1] = " *|";}
-                          else {
-                              square[width1][height1] = " -|";
+                          if(width1==WidthInput&&height1==HeightInput){square[width1][height1] = " * |";}
 
-
-                          }
 
     }
                       System.out.print(square[width1][height1]);
