@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class square {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int WidthOutput = (int) ((Math.random()) * 5 + 1);
+        int HeightOutput = (int) ((Math.random()) * 5 + 1);
         String[][] square = new String[5][5];
         for (int width = 0; width < square.length; width++) {
             for (int height = 0; height < square.length; height++) {
@@ -21,9 +23,11 @@ public class square {
             System.out.println("");}
     for(;;){int WidthInput = scanner.nextInt()-1;
             int HeightInput = scanner.nextInt()-1;
-            int WidthOutput = (int) ((Math.random()) * 5 + 1);
-            int HeightOutput = (int) ((Math.random()) * 5 + 1);
 
+
+
+
+            if(WidthInput<=4&&HeightInput<=4){
 
           if ((WidthInput == WidthOutput) && (HeightInput == HeightOutput)) {
               String[][] square1 = new String[5][5];
@@ -58,5 +62,10 @@ public class square {
     }
                       System.out.print(square[width1][height1]);
                   }
-                  System.out.println("");}}}}}
+                  System.out.println("");}
+              }}
+    else{
+                System.out.println("Entered number should be between 0-5,correct,please");
+            }}
+}}
 
