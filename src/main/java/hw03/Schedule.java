@@ -20,53 +20,41 @@ public class Schedule {
             planner[6][0] = "Sunday";
             planner[6][1] = "go to conversation";
         System.out.println("Please input the day of the week: ");
-            Scanner scanner = new Scanner(System.in);
+        for(;;){Scanner scanner = new Scanner(System.in);
         String input =scanner.next();
 
+        String nameOfDay=input.toLowerCase();
+        String key="exit";
+
+        if(key.equalsIgnoreCase(input)) {break;}
+               else {
+                   switch (nameOfDay) {
+                       case "monday":
+                           System.out.println("Your task for Monday: " + planner[0][1]);
+                           break;
+                       case "tuesday":
+                           System.out.println("Your task for Tuesday: " + planner[1][1]);
+                           break;
+                       case "wednesday":
+                           System.out.println("Your task for Wednesday: " + planner[2][1]);
+                           break;
+                       case "thursday":
+                           System.out.println("Your task for Thursday: " + planner[3][1]);
+                           break;
+                       case "friday":
+                           System.out.println("Your task for Friday: " + planner[4][1]);
+                           break;
+                       case "saturday":
+                           System.out.println("Your task for Saturday: " + planner[5][1]);
+                           break;
+                       case "sunday":
+                           System.out.println("Your task for Sunday: " + planner[6][1]);
+                           break;
+
+                           default:
+                           System.out.println("Sorry, I don't understand you, please try again.");
+                           break;
 
 
-
-
-                String nameOfDay=input.toLowerCase();
-
-
-
-
-
-                switch (nameOfDay) {
-                    case "monday":
-                        System.out.println("Your task for Monday: " + planner[0][1]);
-                        break;
-                    case "tuesday":
-                        System.out.println("Your task for Tuesday: " + planner[1][1]);
-                        break;
-                    case "wednesday":
-                        System.out.println("Your task for Wednesday: " + planner[2][1]);
-                        break;
-                    case "thursday":
-                        System.out.println("Your task for Thursday: " + planner[3][1]);
-                        break;
-                    case "friday":
-                        System.out.println("Your task for Friday: " + planner[4][1]);
-                        break;
-                    case "saturday":
-                        System.out.println("Your task for Saturday: " + planner[5][1]);
-                        break;
-                    case "sunday":
-                        System.out.println("Your task for Sunday: " + planner[6][1]);
-                        break;
-
-
-                    default:
-                        System.out.println("Sorry, I don't understand you, please try again.");
-                        break;
-                    case "exit":
-                        System.out.println("You exited the program");
-                        break;
-
-
-
-
-           }
-            }
-
+                   }
+               }}}}
