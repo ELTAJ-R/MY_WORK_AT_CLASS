@@ -11,44 +11,36 @@ public class numbers {
         String name = scanner.nextLine();
         System.out.println("Name: " + name);
         System.out.println("Let the game begin!");
-        Random guess = new Random();
-        int a = (int) (Math.random() * 100 + 1);
 
-            for (; ; ) {
+        for (; ; ) {
+            int a = (int) (Math.random() * 100 + 1);
 
-            System.out.println("If you want to continue,press 1,else 0");
+            System.out.println("Please guess the number");
+            int b = scanner.nextInt();
 
-            int r = scanner.nextInt();
+            if (b < a) {
+                System.out.println("Your number is too small.Please try once more");
 
+            } else if (b > a) {
+                System.out.println("Your number is bigger than correct one.One more attempt");
 
-            if (r == 1) {
+            } else {
+                System.out.println("Congratulations,you found it," + name);
+                System.out.println("If you want to continue,press 1,else 0");
 
+                int r = scanner.nextInt();
 
-                System.out.println("Please guess the number");
-                int b = scanner.nextInt();
-
-
-                if (b < a) {
-                    System.out.println("Your number is too small.Please try once more");
-                } else if (b > a) {
-                    System.out.println("Your number is bigger than correct one.One more attempt");
+                if (r == 1) {
+                    continue;
+                } else if (r == 0) {
+                    System.out.println("Game over");
+                    break;
                 } else {
-                    System.out.println("Congratulations,you found it," + name);
-                    ;
+                    System.out.println("Not defined");
+
                 }
-            } else if (r == 0) {
-                System.out.println("Game over");
-                break;
-
             }
-            else {
-                System.out.println("Not defined");
-            }
-            ;
-        }
-        }
-    }
-
+        }}}
 
 
 
