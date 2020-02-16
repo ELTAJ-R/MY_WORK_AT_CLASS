@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class square {
-    public static void main(String[] args) {for(;;){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[][] square = new String[5][5];
         for (int width = 0; width < square.length; width++) {
@@ -19,22 +19,44 @@ public class square {
                 System.out.print(square[width][height]);
                 }
             System.out.println("");}
-            int WidthInput = scanner.nextInt();
-            int HeightInput = scanner.nextInt();
+    for(;;){int WidthInput = scanner.nextInt()-1;
+            int HeightInput = scanner.nextInt()-1;
             int WidthOutput = (int) ((Math.random()) * 5 + 1);
             int HeightOutput = (int) ((Math.random()) * 5 + 1);
 
 
           if ((WidthInput == WidthOutput) && (HeightInput == HeightOutput)) {
-                square[WidthInput][HeightInput] = " X ";
-                }
-            else{square[WidthInput][HeightInput] =" *";}
-            System.out.print(square[WidthInput][HeightInput]);}
+              String[][] square1 = new String[5][5];
+              for (int width1 = 0; width1 < square1.length; width1++) {
+                  for (int height1 = 0; height1 < square1.length; height1++) {
+                      if (width1 < square1.length || height1 < square.length) {
+
+                          if(width1==WidthInput&&height1==HeightInput){square[width1][height1] = " X|";}
+                          else {
+                              square[width1][height1] = " -|";
+                          }
 
 
 
-        }
+                      }
+                      System.out.print(square[width1][height1]);
+                  }
+                  System.out.println("");}}
+
+            else{String[][] square1 = new String[5][5];
+              for (int width1 = 0; width1 < square1.length; width1++) {
+                  for (int height1 = 0; height1 < square1.length; height1++) {
+                      if (width1 < square1.length || height1 < square.length) {
+
+                          if(width1==WidthInput&&height1==HeightInput){square[width1][height1] = " *|";}
+                          else {
+                              square[width1][height1] = " -|";
+
+
+                          }
 
     }
-
+                      System.out.print(square[width1][height1]);
+                  }
+                  System.out.println("");}}}}}
 
