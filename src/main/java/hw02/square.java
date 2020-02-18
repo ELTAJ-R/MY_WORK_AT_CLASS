@@ -9,8 +9,8 @@ public class square {
     public static void main(String[] args) {
         System.out.println("All set. Get ready to rumble!");
         Scanner scanner = new Scanner(System.in);
-        int WidthOutput = (int) ((Math.random()) * 5 + 1);
-        int HeightOutput = (int) ((Math.random()) * 5 + 1);
+        int WidthOutput = (int) ((Math.random()) * 5 );
+        int HeightOutput = (int) ((Math.random()) * 5);
         String[][] square = new String[5][5];
 
         for (int width = 0; width < square.length; width++) {
@@ -26,7 +26,7 @@ public class square {
         System.out.println("Enter a shooting bar(First the number for height,second for width)");
     for(;;){int WidthInput = scanner.nextInt()-1;
             int HeightInput = scanner.nextInt()-1;
-            if(((WidthInput<=4)&&(WidthInput>0))&&((HeightInput<=4)&&(HeightInput>0))){
+            if(((WidthInput<=4)&&(WidthInput>=0))&&((HeightInput<=4)&&(HeightInput>=0))){
 
           if ((WidthInput == WidthOutput+1) && (HeightInput == HeightOutput+1)) {
               String[][] square1 = new String[5][5];
