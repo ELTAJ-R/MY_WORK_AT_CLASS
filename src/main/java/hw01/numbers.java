@@ -11,9 +11,10 @@ public class numbers {
         String name = scanner.nextLine();
         System.out.println("Name: " + name);
         System.out.println("Let the game begin!");
+        int a = (int) (Math.random() * 100 + 1);
 
         for (; ; ) {
-            int a = (int) (Math.random() * 100 + 1);
+
 
             System.out.println("Please guess the number");
             int b = scanner.nextInt();
