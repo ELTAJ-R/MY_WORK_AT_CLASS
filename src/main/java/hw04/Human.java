@@ -27,7 +27,7 @@ public class Human {
     }
 
     public String show(){
-        return String.format("name: "+name+"surname: "+surname);
+        return String.format("name: "+name+" surname: "+surname);
 
 
     }

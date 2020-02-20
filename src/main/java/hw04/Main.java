@@ -8,8 +8,8 @@ public class Main {
         Human child = new Human("someone", "noone", 1999, 100) {
             @Override
             public String toString() {
-                return String.format("name: " + name + "surname: " + surname + "age: " + year + "iq: " + iq +" "+
-                        mother.show()+" "+ father.show()+" "+ dog.showanimal());
+                return String.format("Name: " + name + " surname: " + surname + " age: " + year + " iq: " + iq +" Mother:  "+
+                        mother.show()+" Father:  "+ father.show()+" About pet:  "+ dog.showanimal());
             }
 
 
@@ -20,6 +20,7 @@ public class Main {
         System.out.println(child.describePet());
         System.out.println(dog.eat());
         System.out.println(dog.foul());
+        System.out.println(child);
     }
 
 }

@@ -7,12 +7,16 @@ public class Pet {
     static String nickname;
     static int age;
     static  int trickLevel;
-    Pet(String nickname,int age,int trickLevel,String species){
-        this.species=species;
-        this.nickname=nickname;
-        this.age=age;
-        this.trickLevel=trickLevel;
+    static String habits[];
+
+
+    Pet(String nickname,int age,int trickLevel,String species) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
     }
+
 
     public String showanimal(){
         return String.format("Nickname: "+nickname+" age: "+age+"trickLevel: "+trickLevel);
