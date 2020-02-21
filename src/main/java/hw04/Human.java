@@ -10,12 +10,25 @@ public class Human {
     Human Father;
 
 
-    Human(String name,String surname,int year,int iq){
+   public Human(){
+
+
+   }
+
+   public Human(String name,String surname,int year,int iq,Human Mother,Human Father,Pet pet){
         this.name=name;
         this.surname=surname;
         this.year=year;
         this.iq=iq;
+        this.Mother=Mother;
+        this.Father=Father;
+        this.pet=pet;
 
+    }
+    public Human(String name,String surname,int year){
+       this.name=name;
+       this.surname=surname;
+       this.year=year;
     }
 
     public String greetPet(){return
@@ -27,7 +40,7 @@ public class Human {
     }
 
     public String show(){
-        return String.format("name: "+name+" surname: "+surname);
+        return String.format(name+" "+surname);
 
 
     }

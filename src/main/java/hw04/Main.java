@@ -2,13 +2,13 @@ package hw04;
 
 public class Main {
     public static void main(String[] args) {
-        Human mother = new Human("Carol", "Carol", 1999, 100);
-        Human father = new Human("Jack", "Jack", 1999, 100);
-        Pet dog = new Pet( "Rock", 5, 75,"Bulldog");
-        Human child = new Human("someone", "noone", 1999, 100) {
+        Human mother = new Human("Jane","Karleone",1950);
+        Human father = new Human("Vito","Karleone",1950);
+        Pet dog = new Pet( "Rock",5,75,"Bulldog");
+        Human child = new Human("Michael", "Karleone", 1977, 90,mother,father,dog) {
             @Override
             public String toString() {
-                return String.format("Name: " + name + " surname: " + surname + " age: " + year + " iq: " + iq +" Mother:  "+
+                return String.format("Name: " + name + " Surname: " + surname + " Age: " + year + " IQ: " + iq +" Mother:  "+
                         mother.show()+" Father:  "+ father.show()+" About pet:  "+ dog.showanimal());
             }
 
