@@ -1,23 +1,26 @@
 package hw04;
 
 
+import java.util.Arrays;
+
 public class Pet {
-    static String species;
-    static String nickname;
-    static int age;
-    static int trickLevel;
-    static String habits[] = new String[3];
+    String species;
+    String nickname;
+    int age;
+    int trickLevel;
+    String habits[] = new String[3];
 
     public Pet() {
 
     }
 
 
-    public Pet(String nickname, int age, int trickLevel, String species) {
+    public Pet(String nickname, int age, int trickLevel, String species, String habits[]) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
+        this.habits = habits;
     }
 
     public Pet(String nickname, String species) {
@@ -28,7 +31,8 @@ public class Pet {
 
 
     public String showanimal() {
-        return String.format(species + " " + "Nickname: " + nickname + " Age: " + age + " TrickLevel: " + trickLevel);
+        return String.format(species + " " + "Nickname: " + nickname + " Age: " + age + " TrickLevel: " + trickLevel + " " +
+                " Habits " + Arrays.toString(habits));
 
     }
 
@@ -41,7 +45,7 @@ public class Pet {
         return String.format("I need to cover it up");
     }
 
-    public static String assessTrick() {
+    public String assessTrick() {
         if (trickLevel > 50) {
             return "very sly";
         } else {

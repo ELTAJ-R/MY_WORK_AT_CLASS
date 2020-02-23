@@ -5,7 +5,7 @@ public class Human {
     String surname;
     int year;
     int iq;
-    static Pet pet;
+    Pet pet;
     Human Mother;
     Human Father;
     String schedule[][] = new String[7][2];
@@ -44,13 +44,13 @@ public class Human {
 
     public String greetPet() {
         return
-                String.format("Hello," + Pet.nickname);
+                String.format("Hello," + pet.nickname);
     }
 
     public String describePet() {
         return
-                String.format("I have a " + Pet.species + " he is " + Pet.age + " years old " + "he is " +
-                        Pet.assessTrick());
+                String.format("I have a " + pet.species + " he is " + pet.age + " years old " + "he is " +
+                        pet.assessTrick());
 
     }
 
@@ -62,8 +62,8 @@ public class Human {
 
     public boolean feedpet() {
         int a = (int) (Math.random() * 100 + 1);
-        if (Pet.trickLevel > a) {
-            System.out.println("Hm... I will feed Jack's " + Pet.nickname);
+        if (pet.trickLevel > a) {
+            System.out.println("Hm... I will feed Jack's " + pet.nickname);
 
             return true;
         } else {
