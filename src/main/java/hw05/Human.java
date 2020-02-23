@@ -1,5 +1,7 @@
 package hw05;
 
+import java.util.Objects;
+
 public class Human {
     private String name;
     private Pet pet;
@@ -38,10 +40,6 @@ public class Human {
     }
 
 
-
-
-
-
     public String[][] getSchedule() {
         return schedule;
     }
@@ -69,20 +67,13 @@ public class Human {
     }
 
 
-
-
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     }
 
     public Human() {
 
-}
-
-
-
-
-
+    }
 
 
     public String welcomeTheFavourite() {
@@ -92,7 +83,7 @@ public class Human {
 
     public String describeTheFavourite() {
         return
-                String.format("I have a " + pet.getSpecies() + " he is " + pet.getAge()+ " years old " + "he is " +
+                String.format("I have a " + pet.getSpecies() + " he is " + pet.getAge() + " years old " + "he is " +
                         pet.assessTrick());
 
     }
@@ -102,10 +93,11 @@ public class Human {
 
 
     }
+
     public void feed() {
         int a = (int) (Math.random() * 100 + 1);
-        if (pet.getTrickLevel()>50) {
-            System.out.println("Hm... I will feed Jack's " +pet.getNickname());
+        if (pet.getTrickLevel() > 50) {
+            System.out.println("Hm... I will feed Jack's " + pet.getNickname());
 
 
         } else {
@@ -115,10 +107,31 @@ public class Human {
         }
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Human test = (Human) object;
+        if (test.getName() != getName()) return false;
+        if (test.getSurname() != getSurname()) return false;
+        return true;
+    }
 
 
-
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.getName());
+        return hash;
+    }
 }
+
+
+
 
 
 

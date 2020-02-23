@@ -1,6 +1,8 @@
 package hw05;
 
 
+import java.util.Objects;
+
 public class Pet {
     private String species;
     private String nickname;
@@ -81,7 +83,26 @@ public class Pet {
     }
 
 
-
-
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
         }
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Pet test = (Pet) object;
+        if (test.getNickname() != getNickname()) return false;
+        if (test.getAge() != getAge()) return false;
+        return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.getNickname());
+        return hash;
+    }
+}
 
