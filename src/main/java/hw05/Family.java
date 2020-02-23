@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Family extends Human {
+    private Human Mother;
+    private Human Father;
+    private Pet pet;
 
     ArrayList<Human> Children = new ArrayList<>();
-
 
     public Family() {
 
@@ -37,10 +39,6 @@ public class Family extends Human {
         this.pet = pet;
     }
 
-    private Human Mother;
-    private Human Father;
-    private Human[] children;
-    private Pet pet;
 
     @Override
     public String toString() {
@@ -57,17 +55,11 @@ public class Family extends Human {
 
     }
 
-    public void addParents(Human Parent) {
-        Children.add(Parent);
-    }
-
-    public boolean deleteChild(int index) {
-        Children.remove(index);
+    public boolean deleteChild(Human child) {
+        Children.remove(child);
         return true;
 
     }
-
-    StringBuilder useful = new StringBuilder();
 
     public void print() {
         for (Human el : Children) {
@@ -77,7 +69,7 @@ public class Family extends Human {
     }
 
     public int countFamily() {
-        return Children.size();
+        return Children.size() + 2;
     }
 
     @Override
@@ -89,9 +81,9 @@ public class Family extends Human {
             return false;
         }
         Family test = (Family) object;
-      //  if (test.countFamily() != countFamily()) return false;
+        if (test.countFamily() != countFamily()) return false;
         if (test.getFather() != getFather()) return false;
-        if (test.getMother() !=getMother()) return false;
+        if (test.getMother() != getMother()) return false;
         return true;
     }
 
@@ -99,9 +91,7 @@ public class Family extends Human {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.countFamily());
+        hash = 41 * hash + Objects.hashCode(this.getFather());
         return hash;
     }
-
-
 }

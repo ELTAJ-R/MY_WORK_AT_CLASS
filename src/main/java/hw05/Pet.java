@@ -101,7 +101,7 @@ public class Pet {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.getNickname());
+        hash = 17 * hash + Objects.hashCode(this.getNickname());
         return hash;
     }
 }

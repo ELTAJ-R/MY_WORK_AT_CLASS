@@ -6,6 +6,10 @@ public class Human {
     private String name;
     private Pet pet;
     private Family family;
+    private String surname;
+    private int year;
+    private int iq;
+    private String schedule[][];
 
     public Pet getPet() {
         return pet;
@@ -44,12 +48,6 @@ public class Human {
         return schedule;
     }
 
-    private String surname;
-    private int year;
-    private int iq;
-
-    private String schedule[][] = new String[7][2];
-
     public void setName(String name) {
         this.name = name;
     }
@@ -66,7 +64,6 @@ public class Human {
         this.iq = iq;
     }
 
-
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     }
@@ -74,7 +71,6 @@ public class Human {
     public Human() {
 
     }
-
 
     public String welcomeTheFavourite() {
         return
@@ -97,11 +93,11 @@ public class Human {
     public void feed() {
         int a = (int) (Math.random() * 100 + 1);
         if (pet.getTrickLevel() > 50) {
-            System.out.println("Hm... I will feed Jack's " + pet.getNickname());
+            System.out.println("Hm... I will feed  " + pet.getNickname());
 
 
         } else {
-            System.out.println("I think Jack is not hungry.");
+            System.out.println("I think " + pet.getNickname() + " is not hungry.");
 
 
         }
@@ -125,7 +121,7 @@ public class Human {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.getName());
+        hash = 13 * hash + Objects.hashCode(this.getName());
         return hash;
     }
 }
