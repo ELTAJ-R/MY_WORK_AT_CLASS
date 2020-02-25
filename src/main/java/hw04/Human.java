@@ -6,8 +6,8 @@ public class Human {
     int year;
     int iq;
     Pet pet;
-    Human Mother;
-    Human Father;
+    Human mother;
+    Human father;
     String schedule[][] = new String[7][2];
 
 
@@ -16,13 +16,13 @@ public class Human {
 
     }
 
-    public Human(String name, String surname, int year, int iq, Human Mother, Human Father, Pet pet) {
+    public Human(String name, String surname, int year, int iq, Human mother, Human father, Pet pet) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-        this.Mother = Mother;
-        this.Father = Father;
+        this.mother = mother;
+        this.father = father;
         this.pet = pet;
 
     }
@@ -33,12 +33,12 @@ public class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, Human Mother, Human Father) {
+    public Human(String name, String surname, int year, Human mother, Human father) {
         this.name = name;
         this.surname = surname;
         this.year = year;
-        this.Mother = Mother;
-        this.Father = Father;
+        this.mother = mother;
+        this.father = father;
 
     }
 
