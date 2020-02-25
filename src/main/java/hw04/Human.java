@@ -42,20 +42,25 @@ public class Human {
 
     }
 
+    @Override
+    public String toString() {
+        return String.format("Name: %s,Surname: %s,Age:%d,IQ:%d,Mother: %s,Father: %s,About pet: %s", name, surname, year, iq,
+                mother.show(), father.show(), pet);
+    }
+
     public String greetPet() {
         return
-                String.format("Hello," + pet.nickname);
+                String.format("Hello,%s", pet.nickname);
     }
 
     public String describePet() {
         return
-                String.format("I have a " + pet.species + " he is " + pet.age + " years old " + "he is " +
-                        pet.assessTrick());
+                String.format("I have a %s.He is %d years old and he is %s", pet.species, pet.age, pet.assessTrick());
 
     }
 
     public String show() {
-        return String.format(name + " " + surname);
+        return String.format("%s %s", name, surname);
 
 
     }
@@ -63,11 +68,11 @@ public class Human {
     public boolean feedpet() {
         int a = (int) (Math.random() * 100 + 1);
         if (pet.trickLevel > a) {
-            System.out.println("Hm... I will feed Jack's " + pet.nickname);
+            System.out.println("Hm... I will feed  " + pet.nickname);
 
             return true;
         } else {
-            System.out.println("I think Jack is not hungry.");
+            System.out.println("I think " + pet.nickname + " is not hungry.");
 
             return false;
         }

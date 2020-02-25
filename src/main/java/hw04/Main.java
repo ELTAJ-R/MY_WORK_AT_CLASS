@@ -6,21 +6,8 @@ public class Main {
         Human father = new Human("Vito", "Karleone", 1950);
         Pet pet = new Pet("Rock", 5, 75, "Dog", new String[]{"eat", "drink", "sleep"});
         Pet different = new Pet("Jack", 10, 100, "Cat", new String[]{"do nothing"});
-        Human child1 = new Human("Michael", "Karleone", 1977, 90, mother, father, pet) {
-            @Override
-            public String toString() {
-                return String.format("Name: " + name + " Surname: " + surname + " Age: " + year + " IQ: " + iq + " Mother:  " +
-                        mother.show() + " Father:  " + father.show() + " About pet:" + pet.showanimal());
-            }
-        };
-        Human child2 = new Human("Carol", "Karleone", 1980, mother, father) {
-            @Override
-            public String toString() {
-                return String.format("Name: " + name + " Surname: " + surname + " Age: " + year + " Mother:  " +
-                        mother.show() + " Father:  " + father.show());
-            }
-
-        };
+        Human child1 = new Human("Michael", "Karleone", 1977, 90, mother, father, pet);
+        Human child2 = new Human("Carol", "Karleone", 1980, 80, mother, father, different);
 
 
         System.out.println(child1.greetPet());
@@ -29,9 +16,10 @@ public class Main {
         System.out.println(pet.eat());
         System.out.println(pet.foul());
         System.out.println(child1);
-        System.out.println(different.showanimal());
+        System.out.println(different);
         System.out.println(child2);
         child1.feedpet();
+
     }
 
 }

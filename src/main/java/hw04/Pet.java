@@ -30,9 +30,10 @@ public class Pet {
     }
 
 
-    public String showanimal() {
-        return String.format(species + " " + "Nickname: " + nickname + " Age: " + age + " TrickLevel: " + trickLevel + " " +
-                " Habits " + Arrays.toString(habits));
+    @Override
+    public String toString() {
+        return String.format("%s Nickname: %s,Age:%d,TrickLevel:%d,Habits:%s", species, nickname, age, trickLevel
+                , Arrays.toString(habits));
 
     }
 
@@ -55,6 +56,6 @@ public class Pet {
     }
 
     public String respond() {
-        return String.format("Hello, owner. I am " + nickname + ".I miss you!");
+        return String.format("Hello,owner.I am %s.I miss you!", nickname);
     }
 }
