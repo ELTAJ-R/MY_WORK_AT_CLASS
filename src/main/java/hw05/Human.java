@@ -9,7 +9,7 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private String schedule[][];
+    private String[][] schedule;
 
     public Pet getPet() {
         return pet;
@@ -74,13 +74,13 @@ public class Human {
 
     public String welcomeTheFavourite() {
         return
-                String.format("Hello," + pet.getNickname());
+                String.format("Hello,%s", pet.getNickname());
     }
 
     public String describeTheFavourite() {
         return
-                String.format("I have a " + pet.getSpecies() + " he is " + pet.getAge() + " years old " + "he is " +
-                        pet.assessTrick());
+                String.format("I have a %s,he is %d years old,he is %s ", pet.getSpecies(),
+                        pet.getAge(), pet.assessTrick());
 
     }
 
@@ -91,7 +91,6 @@ public class Human {
     }
 
     public void feed() {
-        int a = (int) (Math.random() * 100 + 1);
         if (pet.getTrickLevel() > 50) {
             System.out.println("Hm... I will feed  " + pet.getNickname());
 
@@ -121,10 +120,18 @@ public class Human {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.getName());
+        hash = 13 * hash + Objects.hashCode(this.getName())
+                + Objects.hashCode(this.getSurname()) + Objects.hashCode(this.getIq());
         return hash;
     }
-}
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d ", getName(), getSurname(), getYear(), getIq());
+    }
+
+};
+
 
 
 

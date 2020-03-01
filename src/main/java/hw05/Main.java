@@ -1,6 +1,6 @@
 package hw05;
 
-import java.util.Arrays;
+        import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,32 +15,20 @@ public class Main {
         pet.setAge(5);
         pet.setTrickLevel(75);
         pet.setSpecies("Dog");
+        pet.setHabits(new String[]{"eat", "sleep"});
         Pet anotherPet = new Pet();
         anotherPet.setNickname("Jack");
         anotherPet.setAge(5);
         anotherPet.setSpecies("Cat");
         anotherPet.setTrickLevel(45);
-        Human child1 = new Human() {
-            @Override
-            public String toString() {
-                return String.format("Name: " + getName() + " Surname: " + getSurname() + " Age: " + getYear() + " IQ: " + getIq());
-            }
-
-        };
+        anotherPet.setHabits(new String[]{"do nothing"});
+        Human child1 = new Human();
         child1.setName("Michael");
         child1.setSurname("Karleone");
         child1.setYear(1977);
         child1.setIq(90);
         child1.setPet(pet);
-
-
-        Human child2 = new Human() {
-            @Override
-            public String toString() {
-                return String.format("Name: " + getName() + " Surname: " + getSurname() + " Age: " + getYear() + " IQ: " + getIq());
-            }
-        };
-
+        Human child2 = new Human();
         child2.setName("Carol");
         child2.setSurname("Karleone");
         child2.setYear(1979);

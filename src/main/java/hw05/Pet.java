@@ -1,6 +1,7 @@
 package hw05;
 
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
@@ -55,8 +56,9 @@ public class Pet {
 
     }
 
-    public String showanimal() {
-        return String.format(getSpecies() + " " + "Nickname: " + getNickname() + " Age: " + getAge() + " TrickLevel: " + getTrickLevel());
+    public String toString() {
+        return String.format("%s Nickname: %s,Age:%d,TrickLevel:%d,Habits:%s", species, nickname, age, trickLevel
+                , Arrays.toString(habits));
 
     }
 
@@ -79,7 +81,7 @@ public class Pet {
     }
 
     public String respond() {
-        return String.format("Hello, owner. I am " + getNickname() + ".I miss you!");
+        return String.format("Hello, owner. I am %s.I miss you!", getNickname());
     }
 
 
@@ -101,7 +103,8 @@ public class Pet {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.getNickname());
+        hash = 17 * hash + Objects.hashCode(this.getNickname()) + Objects.hashCode(this.getSpecies())
+                + Objects.hashCode(this.getAge()) + Objects.hashCode(this.getHabits());
         return hash;
     }
 }

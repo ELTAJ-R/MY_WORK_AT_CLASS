@@ -3,7 +3,7 @@ package hw05;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Family extends Human {
+public class Family {
     private Human Mother;
     private Human Father;
     private Pet pet;
@@ -46,7 +46,7 @@ public class Family extends Human {
                 "Children=" + Children +
                 ", Mother=" + Mother.show() +
                 ", Father=" + Father.show() +
-                ", pet=" + pet.showanimal() +
+                ", pet=" + pet +
                 '}';
     }
 
@@ -91,7 +91,8 @@ public class Family extends Human {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.getFather());
+        hash = 41 * hash + (Objects.hashCode(this.getFather()) + Objects.hashCode(this.getMother())
+                + Objects.hashCode(this.countFamily()));
         return hash;
     }
 }
