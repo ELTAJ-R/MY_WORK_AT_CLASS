@@ -1,5 +1,7 @@
 package hw05;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
@@ -10,6 +12,18 @@ public class Human {
     private int year;
     private int iq;
     private String[][] schedule;
+
+    StringBuilder sch = new StringBuilder();
+
+
+    public StringBuilder getSchedule() {
+        for (int i = 0; i < schedule.length; i++) {
+            for (int a = 0; a < schedule.length; a++) {
+            }
+            sch.append(Arrays.toString(schedule[i]));
+        }
+        return sch;
+    }
 
     public Pet getPet() {
         return pet;
@@ -43,10 +57,6 @@ public class Human {
         return iq;
     }
 
-
-    public String[][] getSchedule() {
-        return schedule;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -127,7 +137,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d ", getName(), getSurname(), getYear(), getIq());
+        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d,Schedule:%s ", getName(), getSurname(), getYear(), getIq(), getSchedule());
     }
 
 };

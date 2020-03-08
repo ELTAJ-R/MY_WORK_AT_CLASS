@@ -1,5 +1,6 @@
 package hw05;
 
+import java.time.MonthDay;
 import java.util.Arrays;
 
 public class Main {
@@ -28,18 +29,21 @@ public class Main {
         child1.setYear(1977);
         child1.setIq(90);
         child1.setPet(pet);
+        child1.setSchedule(new String[][]{{"Monday", "go to the course"}, {"Tuesday", "do homework"}});
         Human child3 = new Human();
         child3.setName("Jane");
         child3.setSurname("Karleone");
         child3.setYear(1983);
         child3.setIq(60);
         child3.setPet(pet);
+        child3.setSchedule(new String[][]{{"Monday", "freetime"}, {"Tuesday", "go to work"}});
         Human child2 = new Human();
         child2.setName("Carol");
         child2.setSurname("Karleone");
         child2.setYear(1979);
         child2.setIq(80);
         child2.setPet(anotherPet);
+        child2.setSchedule(new String[][]{{"Monday", "learn English"}, {"Tuesday", "rest"}});
         Human anotherMother = new Human();
         anotherMother.setName("Jane");
         anotherMother.setSurname("Mikelsons");
@@ -54,7 +58,6 @@ public class Main {
         firstfamily.addChild(child1);
         firstfamily.deleteChild(child1);
 
-//        firstfamily.countFamily();
 
         Family secondfamily = new Family();
         secondfamily.setFather(anotherFather);
@@ -64,7 +67,9 @@ public class Main {
         secondfamily.addChild(child3);
         secondfamily.deleteChild(child2);
 
-//        secondfamily.countFamily();
+
+        System.out.println(firstfamily.countFamily());
+        System.out.println(secondfamily.countFamily());
 
         System.out.println(firstfamily.hashCode());
         System.out.println(secondfamily.hashCode());

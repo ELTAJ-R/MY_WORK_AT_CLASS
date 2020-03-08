@@ -7,7 +7,9 @@ public class Family {
     private Human Mother;
     private Human Father;
     private Pet pet;
-    private Human Children[] = new Human[0];
+
+
+    Human Children[] = new Human[0];
 
     public Human[] addChild(Human ch) {
 
@@ -78,10 +80,15 @@ public class Family {
                 '}';
     }
 
+    int count = 0;
 
-//    public int countFamily() {
-//        return Children.length() + 2;
-//    }
+    public int countFamily() {
+        for (Human ch : Children) {
+            count++;
+        }
+        return count + 2;
+
+    }
 
     @Override
     public boolean equals(Object object) {
@@ -92,7 +99,7 @@ public class Family {
             return false;
         }
         Family test = (Family) object;
-//        if (test.countFamily() != countFamily()) return false;
+        if (test.countFamily() != countFamily()) return false;
         if (test.getFather() != getFather()) return false;
         if (test.getMother() != getMother()) return false;
         return true;
@@ -102,8 +109,8 @@ public class Family {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (Objects.hashCode(this.getFather()) + Objects.hashCode(this.getMother()));
-//                 Objects.hashCode(this.countFamily()));
+        hash = 41 * hash + (Objects.hashCode(this.getFather()) + Objects.hashCode(this.getMother()) +
+                Objects.hashCode(this.countFamily()));
         return hash;
     }
 }

@@ -9,7 +9,7 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String habits[] = new String[3];
+    private String habits[];
 
     public void setHabits(String[] habits) {
         this.habits = habits;
