@@ -1,14 +1,36 @@
 package hw05;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
     private Human Mother;
     private Human Father;
     private Pet pet;
+    private Human Children[] = new Human[0];
 
-    ArrayList<Human> Children = new ArrayList<>();
+    public Human[] addChild(Human ch) {
+
+        Human[] process = Arrays.copyOf(Children, Children.length + 1);
+        process[Children.length] = ch;
+        return this.Children = process;
+    }
+
+    public Human[] deleteChild(Human child) {
+        Human[] deleted = new Human[Children.length - 1];
+        for (int i = 0; i < Children.length; i++) {
+            if (child != Children[i]) {
+                for (int a = 0; a < deleted.length; a++) {
+                    deleted[a] = Children[i];
+
+                }
+            }
+        }
+
+        return this.Children = deleted;
+
+    }
+
 
     public Family() {
 
@@ -39,38 +61,27 @@ public class Family {
         this.pet = pet;
     }
 
+    public void print() {
+        for (Human el : Children) {
+            System.out.println(el.show());
+        }
+    }
+
 
     @Override
     public String toString() {
         return "Family{" +
-                "Children=" + Children +
+                "Children=" + Arrays.toString(Children) +
                 ", Mother=" + Mother.show() +
                 ", Father=" + Father.show() +
                 ", pet=" + pet +
                 '}';
     }
 
-    public void addChild(Human child) {
-        Children.add(child);
 
-    }
-
-    public boolean deleteChild(Human child) {
-        Children.remove(child);
-        return true;
-
-    }
-
-    public void print() {
-        for (Human el : Children) {
-            System.out.println(el.show());
-        }
-
-    }
-
-    public int countFamily() {
-        return Children.size() + 2;
-    }
+//    public int countFamily() {
+//        return Children.length() + 2;
+//    }
 
     @Override
     public boolean equals(Object object) {
@@ -81,7 +92,7 @@ public class Family {
             return false;
         }
         Family test = (Family) object;
-        if (test.countFamily() != countFamily()) return false;
+//        if (test.countFamily() != countFamily()) return false;
         if (test.getFather() != getFather()) return false;
         if (test.getMother() != getMother()) return false;
         return true;
@@ -91,8 +102,8 @@ public class Family {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (Objects.hashCode(this.getFather()) + Objects.hashCode(this.getMother())
-                + Objects.hashCode(this.countFamily()));
+        hash = 41 * hash + (Objects.hashCode(this.getFather()) + Objects.hashCode(this.getMother()));
+//                 Objects.hashCode(this.countFamily()));
         return hash;
     }
 }

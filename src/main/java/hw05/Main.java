@@ -1,6 +1,6 @@
 package hw05;
 
-        import java.util.Arrays;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +28,12 @@ public class Main {
         child1.setYear(1977);
         child1.setIq(90);
         child1.setPet(pet);
+        Human child3 = new Human();
+        child3.setName("Jane");
+        child3.setSurname("Karleone");
+        child3.setYear(1983);
+        child3.setIq(60);
+        child3.setPet(pet);
         Human child2 = new Human();
         child2.setName("Carol");
         child2.setSurname("Karleone");
@@ -47,15 +53,18 @@ public class Main {
         firstfamily.setPet(pet);
         firstfamily.addChild(child1);
         firstfamily.deleteChild(child1);
-        firstfamily.countFamily();
+
+//        firstfamily.countFamily();
 
         Family secondfamily = new Family();
         secondfamily.setFather(anotherFather);
         secondfamily.setMother(anotherMother);
         secondfamily.setPet(anotherPet);
         secondfamily.addChild(child2);
-        secondfamily.addChild(child1);
-        secondfamily.countFamily();
+        secondfamily.addChild(child3);
+        secondfamily.deleteChild(child2);
+
+//        secondfamily.countFamily();
 
         System.out.println(firstfamily.hashCode());
         System.out.println(secondfamily.hashCode());
