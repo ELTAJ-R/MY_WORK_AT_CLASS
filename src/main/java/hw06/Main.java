@@ -25,21 +25,18 @@ public class Main {
         child1.setSurname("Karleone");
         child1.setYear(1977);
         child1.setIq(90);
-        child1.setPet(pet);
         child1.setSchedule(new String[][]{{DayOfWeek.MONDAY.name(), "go to the course"}, {DayOfWeek.TUESDAY.name(), "do homework"}});
         Human child3 = new Human();
         child3.setName("Jane");
         child3.setSurname("Karleone");
         child3.setYear(1983);
         child3.setIq(60);
-        child3.setPet(pet);
         child3.setSchedule(new String[][]{{DayOfWeek.MONDAY.name(), "freetime"}, {DayOfWeek.FRIDAY.name(), "go to work"}});
         Human child2 = new Human();
         child2.setName("Carol");
         child2.setSurname("Karleone");
         child2.setYear(1979);
         child2.setIq(80);
-        child2.setPet(anotherPet);
         child2.setSchedule(new String[][]{{DayOfWeek.SATURDAY.name(), "learn English"}, {DayOfWeek.WEDNESDAY.name(), "rest"}});
         Human anotherMother = new Human();
         anotherMother.setName("Jane");
@@ -52,8 +49,6 @@ public class Main {
         firstfamily.setMother(mother);
         firstfamily.setFather(father);
         firstfamily.setPet(pet);
-        ;
-//        firstfamily.deleteChild(child1);
 
 
         Family secondfamily = new Family();
@@ -63,28 +58,24 @@ public class Main {
         secondfamily.addChild(child1);
         secondfamily.addChild(child2);
         secondfamily.addChild(child3);
-//        secondfamily.deleteChildIndex(1);
-
-//        for(int i=0;i<10;i++){
-////            new Human();
-////            System.gc();
-////        }
 
 
-//        System.out.println(firstfamily.countFamily());
-//        System.out.println(secondfamily.countFamily());
-//
-//        System.out.println(firstfamily.hashCode());
-//        System.out.println(secondfamily.hashCode());
-//        System.out.println(firstfamily.equals(secondfamily));
-//        System.out.println(mother.equals(anotherMother));
-//        System.out.println(pet.equals(anotherPet));
+        for (int z = 0; z < 10; z++) {
+            new Human();
+            System.gc();
+        }
+
+
+        System.out.println(firstfamily.countFamily());
+        System.out.println(secondfamily.countFamily());
+
+        System.out.println(firstfamily.hashCode());
+        System.out.println(secondfamily.hashCode());
+        System.out.println(firstfamily.equals(secondfamily));
+        System.out.println(mother.equals(anotherMother));
+        System.out.println(pet.equals(anotherPet));
         System.out.println(firstfamily);
         System.out.println(secondfamily);
-//        System.out.println(child1.welcomeTheFavourite());
-//        System.out.println(child1.describeTheFavourite());
-//        child1.feed();
-//        child2.feed();
 
 
     }

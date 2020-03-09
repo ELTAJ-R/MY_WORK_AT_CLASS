@@ -9,7 +9,13 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String habits[];
+    private String[] habits;
+
+    public Pet(Species species, String nickname, int age) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+    }
 
     public void setHabits(String[] habits) {
         this.habits = habits;
@@ -63,12 +69,12 @@ public class Pet {
     }
 
     public String eat() {
-        return String.format("I am eating");
+        return "I am eating";
 
     }
 
     public String foul() {
-        return String.format("I need to cover it up");
+        return "I need to cover it up";
     }
 
     public String assessTrick() {
@@ -107,9 +113,10 @@ public class Pet {
                 + Objects.hashCode(this.getAge()) + Objects.hashCode(this.getHabits());
         return hash;
 
-} @Override
-    protected void finalize()
-    {
+    }
+
+    @Override
+    protected void finalize() {
         System.out.println("Pet object deleted");
     }
 }
