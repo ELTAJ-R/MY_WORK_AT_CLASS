@@ -1,44 +1,25 @@
 package hw05;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
     private String name;
-    private Pet pet;
-    private Family family;
     private String surname;
     private int year;
     private int iq;
     private String[][] schedule;
 
-    StringBuilder sch = new StringBuilder();
+    public Human() {
 
-
-    public StringBuilder getSchedule() {
-        for (int i = 0; i < schedule.length; i++) {
-            for (int a = 0; a < schedule.length; a++) {
-            }
-            sch.append(Arrays.toString(schedule[i]));
-        }
-        return sch;
     }
 
-    public Pet getPet() {
-        return pet;
+    public String[][] getSchedule() {
+        return schedule;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public Family getFamily() {
-        return family;
-    }
-
-    public void setFamily(Family family) {
-        this.family = family;
+    public void setSchedule(String[][] schedule) {
+        this.schedule = schedule;
     }
 
     public String getName() {
@@ -74,43 +55,13 @@ public class Human {
         this.iq = iq;
     }
 
-    public void setSchedule(String[][] schedule) {
-        this.schedule = schedule;
-    }
-
-    public Human() {
-
-    }
-
-    public String welcomeTheFavourite() {
-        return
-                String.format("Hello,%s", pet.getNickname());
-    }
-
-    public String describeTheFavourite() {
-        return
-                String.format("I have a %s,he is %d years old,he is %s ", pet.getSpecies(),
-                        pet.getAge(), pet.assessTrick());
-
-    }
 
     public String show() {
-        return String.format(getName() + " " + getSurname());
+        return String.format("%s %s", getName(), getSurname());
 
 
     }
 
-    public void feed() {
-        if (pet.getTrickLevel() > 50) {
-            System.out.println("Hm... I will feed  " + pet.getNickname());
-
-
-        } else {
-            System.out.println("I think " + pet.getNickname() + " is not hungry.");
-
-
-        }
-    }
 
     @Override
     public boolean equals(Object object) {
@@ -121,8 +72,8 @@ public class Human {
             return false;
         }
         Human test = (Human) object;
-        if (test.getName() != getName()) return false;
-        if (test.getSurname() != getSurname()) return false;
+        if (!test.getName().equals(getName())) return false;
+        if (!test.getSurname().equals(getSurname())) return false;
         return true;
     }
 
@@ -137,10 +88,10 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d,Schedule:%s ", getName(), getSurname(), getYear(), getIq(), getSchedule());
+        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d,Schedule:%s ", getName(), getSurname(), getYear(), getIq(), Arrays.deepToString(getSchedule()));
     }
 
-};
+}
 
 
 

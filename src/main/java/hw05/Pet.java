@@ -9,7 +9,11 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String habits[];
+    private String[] habits;
+
+    public Pet() {
+
+    }
 
     public void setHabits(String[] habits) {
         this.habits = habits;
@@ -52,9 +56,6 @@ public class Pet {
         return habits;
     }
 
-    public Pet() {
-
-    }
 
     public String toString() {
         return String.format("%s Nickname: %s,Age:%d,TrickLevel:%d,Habits:%s", species, nickname, age, trickLevel
@@ -94,7 +95,7 @@ public class Pet {
             return false;
         }
         Pet test = (Pet) object;
-        if (test.getNickname() != getNickname()) return false;
+        if (!test.getNickname().equals(getNickname())) return false;
         if (test.getAge() != getAge()) return false;
         return true;
     }

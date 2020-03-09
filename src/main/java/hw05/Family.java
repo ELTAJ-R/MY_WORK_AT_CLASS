@@ -4,54 +4,54 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Family {
-    private Human Mother;
-    private Human Father;
+    private Human mother;
+    private Human father;
     private Pet pet;
-
-
-    Human Children[] = new Human[0];
-
-    public Human[] addChild(Human ch) {
-
-        Human[] process = Arrays.copyOf(Children, Children.length + 1);
-        process[Children.length] = ch;
-        return this.Children = process;
-    }
-
-    public Human[] deleteChild(Human child) {
-        Human[] deleted = new Human[Children.length - 1];
-        for (int i = 0; i < Children.length; i++) {
-            if (child != Children[i]) {
-                for (int a = 0; a < deleted.length; a++) {
-                    deleted[a] = Children[i];
-
-                }
-            }
-        }
-
-        return this.Children = deleted;
-
-    }
-
 
     public Family() {
 
     }
 
-    public Human getMother() {
-        return Mother;
+
+    Human[] children = new Human[0];
+
+    public Human[] addChild(Human ch) {
+
+        Human[] process = Arrays.copyOf(children, children.length + 1);
+        process[children.length] = ch;
+        return this.children = process;
     }
 
-    public void setMother(Human mother) {
-        Mother = mother;
+    public Human[] deleteChild(Human child) {
+        Human[] deleted = new Human[children.length - 1];
+        for (int i = 0; i < children.length; i++) {
+            if (!child.equals(children[i])) {
+                for (int a = 0; a < deleted.length; a++) {
+                    deleted[a] = children[i];
+
+                }
+            }
+        }
+
+        return this.children = deleted;
+
+    }
+
+
+    public Human getMother() {
+        return mother;
+    }
+
+    public void setMother(Human mother1) {
+        mother = mother1;
     }
 
     public Human getFather() {
-        return Father;
+        return father;
     }
 
-    public void setFather(Human father) {
-        Father = father;
+    public void setFather(Human father1) {
+        father = father1;
     }
 
 
@@ -63,9 +63,27 @@ public class Family {
         this.pet = pet;
     }
 
-    public void print() {
-        for (Human el : Children) {
-            System.out.println(el.show());
+    public String welcomeTheFavourite() {
+        return
+                String.format("Hello,%s", pet.getNickname());
+    }
+
+    public String describeTheFavourite() {
+        return
+                String.format("I have a %s,he is %d years old,he is %s ", pet.getSpecies(),
+                        pet.getAge(), pet.assessTrick());
+
+    }
+
+    public void feed() {
+        if (pet.getTrickLevel() > 50) {
+            System.out.println("Hm... I will feed  " + pet.getNickname());
+
+
+        } else {
+            System.out.println("I think " + pet.getNickname() + " is not hungry.");
+
+
         }
     }
 
@@ -73,21 +91,16 @@ public class Family {
     @Override
     public String toString() {
         return "Family{" +
-                "Children=" + Arrays.toString(Children) +
-                ", Mother=" + Mother.show() +
-                ", Father=" + Father.show() +
+                "Children=" + Arrays.toString(children) +
+                ", Mother=" + mother.show() +
+                ", Father=" + father.show() +
                 ", pet=" + pet +
                 '}';
     }
 
-    int count = 0;
 
     public int countFamily() {
-        for (Human ch : Children) {
-            count++;
-        }
-        return count + 2;
-
+        return children.length + 2;
     }
 
     @Override
