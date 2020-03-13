@@ -10,15 +10,13 @@ public class Dog extends Pet {
     private int trickLevel;
     private String[] habits;
 
-    Dog() {
-        this.species = Species.DOG;
-    }
 
     public Dog(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
+        this.species = Species.DOG;
     }
 
 

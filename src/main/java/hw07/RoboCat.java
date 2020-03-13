@@ -10,15 +10,13 @@ public class RoboCat extends Pet {
     private int trickLevel;
     private String[] habits;
 
-    public RoboCat() {
-        this.species = Species.ROBOCAT;
-    }
 
     public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
+        this.species = Species.ROBOCAT;
 
     }
 

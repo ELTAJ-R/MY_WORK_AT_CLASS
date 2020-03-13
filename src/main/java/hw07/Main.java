@@ -43,7 +43,7 @@ public class Main {
         secondfamily.addChild(child2);
         secondfamily.addChild(child3);
 
-        System.out.println(new RoboCat());
+        System.out.println(new RoboCat("Jack", 5, 80, new String[]{"sleep"}));
 
 
         for (int z = 0; z < 10; z++) {

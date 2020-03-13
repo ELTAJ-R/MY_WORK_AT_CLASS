@@ -9,15 +9,13 @@ public class DomesticCat extends Pet {
     private int trickLevel;
     private String[] habits;
 
-    public DomesticCat() {
-        this.species = Species.DOMESCTICCAT;
-    }
 
     public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
+        this.species = Species.DOMESCTICCAT;
     }
 
     @Override
