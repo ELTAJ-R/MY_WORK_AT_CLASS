@@ -60,6 +60,14 @@ public class CollectionFamilyDAO implements DAO<Family, Human> {
         return data.size();
     }
 
+    @Override
+    public void create(Human mother, Human father) {
+        Family new_created = new Family();
+        new_created.setFather(father);
+        new_created.setMother(mother);
+        data.add(new_created);
+    }
+
     public List<Pet> getPets(int familyIndex) {
         return new ArrayList<>(data.get(familyIndex).pets);
 

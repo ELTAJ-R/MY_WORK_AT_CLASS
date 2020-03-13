@@ -13,11 +13,8 @@ public class FamilyService {
         return dao.getAll();
     }
 
-    public Family create(Human mother, Human father) {
-        Family new_created = new Family();
-        new_created.setFather(father);
-        new_created.setMother(mother);
-        return new_created;
+    public void create(Human mother, Human father) {
+        dao.create(mother,father);
     }
 
     public boolean saveFamily(Family obj) {
@@ -34,28 +31,28 @@ public class FamilyService {
         return dao.delete(index);
     }
 
-    public void displayAllFamilies() {
-        dao.getAll().forEach(System.out::println);
+    public Collection<Family> displayAllFamilies() {
+      return dao.getAll();
     }
 
-    public void getFamiliesBiggerThan(int sizeOfFamily) {
+    public List<Family> getFamiliesBiggerThan(int sizeOfFamily) {
         List<Family> storage = new ArrayList<>();
         for (Family family : dao.getAll()) {
             if (family.countFamily() > sizeOfFamily) {
                 storage.add(family);
             }
         }
-        storage.forEach(System.out::println);
+        return storage;
     }
 
-    public void getFamiliesSmallerThan(int sizeOfFamily) {
+    public List<Family> getFamiliesSmallerThan(int sizeOfFamily) {
         List<Family> storage = new ArrayList<>();
         for (Family family : dao.getAll()) {
             if (family.countFamily() < sizeOfFamily) {
                 storage.add(family);
             }
         }
-        storage.forEach(System.out::println);
+       return storage;
     }
 
     public void bornChild(Family before, String Tom, String Jane) {
@@ -100,7 +97,7 @@ public class FamilyService {
     }
 
     public int countFamiliesWithMemberNumber(int sizeOfFam) {
-        return getAll().stream().filter(a -> a.countFamily() == sizeOfFam).collect(Collectors.toList()).size();
+        return (int) getAll().stream().filter(a -> a.countFamily() == sizeOfFam).count();
     }
 
 }

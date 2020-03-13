@@ -19,5 +19,7 @@ public interface DAO<T, H> {
 
     int count();
 
+    void create(H obj, H o);
+
 
 }

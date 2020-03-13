@@ -15,8 +15,8 @@ public class FamilyController {
     }
 
 
-    public Family createNewFamily(Human mother, Human father) {
-        return app.create(mother, father);
+    public void createNewFamily(Human mother, Human father) {
+        app.create(mother, father);
 
     }
 
@@ -36,15 +36,16 @@ public class FamilyController {
     }
 
     public void displayAllFamilies() {
-        app.displayAllFamilies();
+        app.displayAllFamilies().forEach(System.out::println);
     }
 
     public void getFamiliesBiggerThan(int sizeOfFamily) {
-        app.getFamiliesBiggerThan(sizeOfFamily);
+        app.getFamiliesBiggerThan(sizeOfFamily).forEach(System.out::println);
     }
 
     public void getFamiliesSmallerThan(int sizeOfFamily) {
-        app.getFamiliesSmallerThan(sizeOfFamily);
+        app.getFamiliesSmallerThan(sizeOfFamily).forEach(System.out::println);
+
     }
 
     public void bornChild(Family before, String Tom, String Jane) {
