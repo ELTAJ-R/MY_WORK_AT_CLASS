@@ -9,8 +9,6 @@ public interface DAO<T, H> {
 
     Collection<T> getAll();
 
-    void create(T obj);
-
     boolean save(T obj);
 
     boolean delete(T obj);

@@ -102,4 +102,6 @@ public class FamilyService {
     public int countFamiliesWithMemberNumber(int sizeOfFam) {
         return getAll().stream().filter(a -> a.countFamily() == sizeOfFam).collect(Collectors.toList()).size();
     }
+
 }
+

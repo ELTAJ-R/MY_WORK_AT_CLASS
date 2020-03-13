@@ -21,12 +21,6 @@ public class CollectionFamilyDAO implements DAO<Family, Human> {
         return data;
     }
 
-    @Override
-    public void create(Family obj) {
-
-
-    }
-
 
     @Override
     public boolean save(Family obj) {
@@ -67,9 +61,7 @@ public class CollectionFamilyDAO implements DAO<Family, Human> {
     }
 
     public List<Pet> getPets(int familyIndex) {
-        List<Pet> pets = new ArrayList<>();
-        pets.addAll(data.get(familyIndex).pets);
-        return pets;
+        return new ArrayList<>(data.get(familyIndex).pets);
 
     }
 
