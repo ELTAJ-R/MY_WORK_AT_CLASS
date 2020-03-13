@@ -9,9 +9,7 @@ import java.util.Optional;
 
 public class FamilyController {
     FamilyService app=new FamilyService();
-    public Optional<Family> get(int index) {
-        return Optional.empty();
-    }
+
 
 
     public Collection<Family> getAll() {
@@ -52,7 +50,27 @@ public class FamilyController {
         app.bornChild(before,Tom, Jane);
 
     }
+    public void adoptChild(Family family,Human child){
+        app.adoptChild(family,child);
+    }
+    public void deleteChildrenOlderThan(int ageLimit){
+       app.deleteChildrenOlderThan(ageLimit);
+    }
+    public int count(){
+        return app.count();
+    }
+    public Optional<Family> getFamilyByIndex(int index){
+       return app.getFamilyByIndex(index);
+    }
+    public List<Pet> getPets(int familyIndex){
+        return app.getPets(familyIndex);
 
-
+    }
+    public void addPet(int index,Pet pet){
+        app.addPet(index,pet);
+    }
+    public void deleteFamilyByIndex(int index){
+        app.delete(index);
+    }
 
 }

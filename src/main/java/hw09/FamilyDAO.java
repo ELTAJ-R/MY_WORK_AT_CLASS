@@ -2,6 +2,7 @@ package hw09;
 
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 public interface FamilyDAO<T> {
@@ -11,7 +12,9 @@ public interface FamilyDAO<T> {
     boolean saveFamily(T obj);
     boolean delete(T obj);
     boolean delete(int index);
-    void update(T obj);
+    void modify(T obj,Human child);
+    int count();
+
 
 
 }

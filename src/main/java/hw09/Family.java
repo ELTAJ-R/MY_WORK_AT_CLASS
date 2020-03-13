@@ -11,10 +11,6 @@ public class Family {
     private Human mother;
     private Human father;
     Pet pet;
-
-
-
-
     List<Human> children = new ArrayList<>();
     HashSet<Pet> pets = new HashSet<>();
 
@@ -26,6 +22,8 @@ public class Family {
         this.mother = mother;
         this.father = father;
     }
+
+
 
     public boolean addChild(Human ch) {
         if (!children.contains(ch)) {
