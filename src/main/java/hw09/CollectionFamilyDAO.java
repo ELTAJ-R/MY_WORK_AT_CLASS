@@ -1,10 +1,9 @@
 package hw09;
 
 
-
 import java.util.*;
 
-public class CollectionFamilyDAO implements FamilyDAO<Family> {
+public class CollectionFamilyDAO implements DAO<Family, Human> {
 
 
     private List<Family> data = new ArrayList<>();
@@ -30,7 +29,7 @@ public class CollectionFamilyDAO implements FamilyDAO<Family> {
 
 
     @Override
-    public boolean saveFamily(Family obj) {
+    public boolean save(Family obj) {
         if (!data.contains(obj)) {
             data.add(data.size(), obj);
             return true;
@@ -60,21 +59,24 @@ public class CollectionFamilyDAO implements FamilyDAO<Family> {
     public void modify(Family family, Human child) {
 
         data.get(data.indexOf(family)).children.add(child);
-        }
-     @Override
-        public int count(){
-        return data.size();
-        }
-        public List<Pet> getPets(int familyIndex){
-        List<Pet> pets=new ArrayList<>();
-           pets.addAll(data.get(familyIndex).pets) ;
-           return pets;
+    }
 
-        }
-    public void addPet(int index,Pet pet){
+    @Override
+    public int count() {
+        return data.size();
+    }
+
+    public List<Pet> getPets(int familyIndex) {
+        List<Pet> pets = new ArrayList<>();
+        pets.addAll(data.get(familyIndex).pets);
+        return pets;
+
+    }
+
+    public void addPet(int index, Pet pet) {
         data.get(index).pets.add(pet);
     }
-    }
+}
 
 
 

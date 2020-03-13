@@ -24,7 +24,6 @@ public class Family {
     }
 
 
-
     public boolean addChild(Human ch) {
         if (!children.contains(ch)) {
             children.add(ch);
