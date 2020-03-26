@@ -4,9 +4,9 @@ import hw09.DayOfWeek;
 import hw09.Pet;
 
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -16,8 +16,8 @@ public class Human {
     private long birthDate;
     private int iq;
     Pet pet;
-    private String dateOfBirth;
     HashMap<DayOfWeek, String> schedule = new HashMap<>();
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 
     public Human() {
@@ -26,7 +26,18 @@ public class Human {
     public Human(String name, String surname, String dateOfBirth, int iq) {
         this.name = name;
         this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
+        this.iq = iq;
+        try {
+            setBirthDate(formatter.parse(dateOfBirth).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Human(String name, String surname, long birthDate, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birthDate;
         this.iq = iq;
     }
 
@@ -42,16 +53,6 @@ public class Human {
     public void setBirthDate(long birthDate) {
         this.birthDate = birthDate;
     }
-
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
 
     public HashMap<DayOfWeek, String> getSchedule() {
         return schedule;
@@ -100,17 +101,9 @@ public class Human {
         return String.format("Hello,%s", pet.getNickname());
     }
 
+
     String describeAge() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate now = LocalDate.now();
-        LocalDate dateOfBirth = LocalDate.parse(getDateOfBirth(), formatter);
-        int days = Period.between(dateOfBirth, now).getDays();
-        int months = Period.between(dateOfBirth, now).getMonths();
-        int years = Period.between(dateOfBirth, now).getYears();
-
-        return String.format("Time passed since birth-Years:%d,Months:%d,Days:%d", years, months, days);
-
-
+        return formatter.format(new Date(getBirthDate()));
     }
 
 
@@ -139,14 +132,10 @@ public class Human {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-        LocalDate prev = LocalDate.parse(getDateOfBirth(), formatter1);
-        String after = prev.format(formatter2);
-
+        SimpleDateFormat formatChanger = new SimpleDateFormat("yyyy-MM-dd");
+        String afterFormat = formatChanger.format(new Date(getBirthDate()));
         return String.format("Name: %s,Surname: %s,IQ:%d,BirthDate:%s,Schedule:%s "
-                , getName(), getSurname(), getIq(), after, schedule);
+                , getName(), getSurname(), getIq(), afterFormat, schedule);
     }
 
     @Override
