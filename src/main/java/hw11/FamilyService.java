@@ -56,7 +56,7 @@ public class FamilyService {
             case 2:
                 ch.setName(Jane);
         }
-        ch.setYear(0);
+        ch.setBirthDate(System.currentTimeMillis());
         dao.modify(before, ch);
     }
 
@@ -65,7 +65,7 @@ public class FamilyService {
     }
 
     public void deleteChildrenOlderThan(int ageLimit) {
-        dao.getAll().forEach(f -> f.children.removeIf(p -> p.getYear() > ageLimit));
+        dao.getAll().forEach(f -> f.children.removeIf(p -> p.ageCalculator()> ageLimit));
     }
 
     public int count() {

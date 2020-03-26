@@ -3,32 +3,55 @@ package hw11;
 import hw09.DayOfWeek;
 import hw09.Pet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class Human {
     private String name;
     private String surname;
-    private int year;
+    private long birthDate;
     private int iq;
     Pet pet;
-
     HashMap<DayOfWeek, String> schedule = new HashMap<>();
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-    public Human(String name, String surname, int year, int iq) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.iq = iq;
-    }
 
     public Human() {
+    }
 
+    public Human(String name, String surname, String dateOfBirth, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.iq = iq;
+        try {
+            setBirthDate(formatter.parse(dateOfBirth).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Human(String name, String surname, long birthDate, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birthDate;
+        this.iq = iq;
     }
 
     public Human(String name, String surname) {
         this.name = name;
         this.surname = surname;
+    }
+
+    public long getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(long birthDate) {
+        this.birthDate = birthDate;
     }
 
     public HashMap<DayOfWeek, String> getSchedule() {
@@ -48,9 +71,6 @@ public class Human {
         return surname;
     }
 
-    public int getYear() {
-        return year;
-    }
 
     public int getIq() {
         return iq;
@@ -65,9 +85,6 @@ public class Human {
         this.surname = surname;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public void setIq(int iq) {
         this.iq = iq;
@@ -82,6 +99,17 @@ public class Human {
 
     public String greetPet() {
         return String.format("Hello,%s", pet.getNickname());
+    }
+
+
+    String describeAge() {
+        return formatter.format(new Date(getBirthDate()));
+    }
+    public int ageCalculator(){
+       int birthDate = new Date(getBirthDate()).getYear()+1900;
+       int current = LocalDate.now().getYear();
+       return current-birthDate;
+
     }
 
 
@@ -110,8 +138,10 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("Name: %s,Surname: %s,Age: %d,IQ:%d,Schedule:%s "
-                , getName(), getSurname(), getYear(), getIq(), schedule);
+        SimpleDateFormat formatChanger = new SimpleDateFormat("yyyy-MM-dd");
+        String afterFormat = formatChanger.format(new Date(getBirthDate()));
+        return String.format("Name: %s,Surname: %s,IQ:%d,BirthDate:%s,Schedule:%s "
+                , getName(), getSurname(), getIq(), afterFormat, schedule);
     }
 
     @Override

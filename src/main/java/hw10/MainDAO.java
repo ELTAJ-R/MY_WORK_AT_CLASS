@@ -1,6 +1,10 @@
 package hw10;
 
-import hw09.Human;
+import hw09.DomesticCat;
+import hw11.Family;
+import hw11.FamilyController;
+import hw11.Human;
+
 
 public class MainDAO {
 
@@ -13,16 +17,12 @@ public class MainDAO {
 
         Human anotherFather = new Human("Mark", "Mikelsons");
 
-        Human child1 = new Human("Michael", "Karleone", 20, 90);
+        Human child1 = new Human("Michael", "Karleone", 739997942000L, 90);
 
-        Human child2 = new Human("Carol", "Karleone", 15, 80);
+        Human child2 = new Human("Carol", "Karleone", 954097142000L, 80);
 
-        Human child3 = new Human("Jane", "Karleone", 25, 60);
-
-
+        Human child3 = new Human("Jane", "Karleone", 538426742000L, 60);
         DomesticCat ex = new DomesticCat("Tom", 5, 75);
-
-        Dog dog = new Dog("Jack", 10, 65);
         FamilyController test = new FamilyController();
 
         Family first = new Family();
@@ -36,18 +36,16 @@ public class MainDAO {
         second.addChild(child2);
         test.saveFamily(second);
         test.bornChild(second, "Tom", "Jane");
-        test.adoptChild(second, child3);
+        test.adoptChild(second, new Human("Henry", "Mikalseon", "10/05/1985", 87));
         test.addPet(0, ex);
         test.createNewFamily(mother, father);
-        System.out.println(test.getPets(0));
+//        System.out.println(test.getPets(0));
+//        System.out.println(test.getFamilyByIndex(0));
+        test.deleteChildrenOlderThan(20);
 
         test.displayAllFamilies();
-        System.out.println(test.getFamilyByIndex(0));
-        test.deleteChildrenOlderThan(18);
-
-        test.displayAllFamilies();
-        test.getFamiliesBiggerThan(3);
-        test.getFamiliesSmallerThan(4);
+//        test.getFamiliesBiggerThan(5);
+//        test.getFamiliesSmallerThan(6);
 
 
     }

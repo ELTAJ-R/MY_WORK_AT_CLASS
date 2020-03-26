@@ -1,13 +1,13 @@
 package hw10;
 
 
-import hw09.Human;
 import hw09.Pet;
+import hw11.Human;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class FamilyService {
 
@@ -19,7 +19,7 @@ public class FamilyService {
     }
 
     public void create(Human mother, Human father) {
-        dao.create(mother,father);
+        dao.create(mother, father);
     }
 
     public boolean saveFamily(Family obj) {
@@ -37,27 +37,15 @@ public class FamilyService {
     }
 
     public Collection<Family> displayAllFamilies() {
-      return dao.getAll();
+        return dao.getAll();
     }
 
     public List<Family> getFamiliesBiggerThan(int sizeOfFamily) {
-        List<Family> storage = new ArrayList<>();
-        for (Family family : dao.getAll()) {
-            if (family.countFamily() > sizeOfFamily) {
-                storage.add(family);
-            }
-        }
-        return storage;
+        return dao.getAll().stream().filter(a -> a.countFamily() > sizeOfFamily).collect(Collectors.toList());
     }
 
     public List<Family> getFamiliesSmallerThan(int sizeOfFamily) {
-        List<Family> storage = new ArrayList<>();
-        for (Family family : dao.getAll()) {
-            if (family.countFamily() < sizeOfFamily) {
-                storage.add(family);
-            }
-        }
-       return storage;
+        return dao.getAll().stream().filter(a -> a.countFamily() < sizeOfFamily).collect(Collectors.toList());
     }
 
     public void bornChild(Family before, String Tom, String Jane) {
@@ -69,7 +57,7 @@ public class FamilyService {
             case 2:
                 ch.setName(Jane);
         }
-        ch.setYear(0);
+        ch.setBirthDate(System.currentTimeMillis());
         dao.modify(before, ch);
     }
 
@@ -78,7 +66,7 @@ public class FamilyService {
     }
 
     public void deleteChildrenOlderThan(int ageLimit) {
-        dao.getAll().forEach(f -> f.children.removeIf(p -> p.getYear() > ageLimit));
+        dao.getAll().forEach(f -> f.children.removeIf(p -> p.ageCalculator() > ageLimit));
     }
 
     public int count() {
