@@ -38,7 +38,9 @@ public class FamilyController {
     }
 
     public void displayAllFamilies() {
-        app.displayAllFamilies().forEach(System.out::println);
+        if (count() == 1) {
+            System.out.println(getFamilyByIndex(0).prettyFormat());
+        } else app.displayAllFamilies().forEach(System.out::println);
     }
 
     public void getFamiliesBiggerThan(int sizeOfFamily) {
@@ -67,7 +69,7 @@ public class FamilyController {
         return app.count();
     }
 
-    public Optional<Family> getFamilyByIndex(int index) {
+    public Family getFamilyByIndex(int index) {
         return app.getFamilyByIndex(index);
     }
 

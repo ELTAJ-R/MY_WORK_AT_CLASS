@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 public interface DAO<T, H> {
-    Optional<T> get(int index);
+    T get(int index);
 
     Collection<T> getAll();
 

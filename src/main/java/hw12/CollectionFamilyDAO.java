@@ -3,10 +3,7 @@ package hw12;
 
 import hw09.Pet;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class CollectionFamilyDAO implements DAO<Family, Human> {
 
@@ -14,9 +11,9 @@ public class CollectionFamilyDAO implements DAO<Family, Human> {
     private List<Family> data = new ArrayList<>();
 
     @Override
-    public Optional<Family> get(int index) {
-        if (index >= 0 && index < data.size()) return Optional.of(data.get(index));
-        else return Optional.empty();
+    public Family get(int index) {
+        if (index >= 0 && index < data.size()) return data.get(index);
+        else throw new NoSuchElementException();
 
     }
 

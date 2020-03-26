@@ -4,6 +4,7 @@ package hw12;
 import hw09.Pet;
 import hw09.Species;
 
+import java.time.Period;
 import java.util.*;
 
 
@@ -89,14 +90,24 @@ public class Family {
                 ", pet=" + pets +
                 '}';
     }
-    public String prettyFormat(){
+
+    public String prettyFormat() {
         return String.format("Family:\n children:%s\n mother:%s\n father:%s\n pets:%s\n"
-                ,listToString(children),mother.show(),father.show(),pets);
+                , listToString(children), mother.show(), father.show(), SetToString(pets));
     }
+
     public static String listToString(List list) {
-        StringJoiner result= new StringJoiner("\n    child:","\n    child:","");
+        StringJoiner result = new StringJoiner("\n    child:", "\n    child:", "");
         for (int i = 0; i < list.size(); i++) {
             result.add(list.get(i).toString());
+        }
+        return result.toString();
+    }
+
+    public static String SetToString(HashSet<Pet> set) {
+        StringJoiner result = new StringJoiner("\n    pet:", "\n    pet:", "");
+        for (Pet el : set) {
+            result.add(el.toString());
         }
         return result.toString();
     }

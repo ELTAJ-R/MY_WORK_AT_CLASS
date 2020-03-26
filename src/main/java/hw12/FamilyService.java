@@ -72,7 +72,7 @@ public class FamilyService {
         return dao.count();
     }
 
-    public Optional<Family> getFamilyByIndex(int index) {
+    public Family getFamilyByIndex(int index) {
         return dao.get(index);
     }
 
