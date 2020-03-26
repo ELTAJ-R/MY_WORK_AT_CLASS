@@ -6,6 +6,7 @@ import hw09.Pet;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Objects;
@@ -104,6 +105,12 @@ public class Human {
 
     String describeAge() {
         return formatter.format(new Date(getBirthDate()));
+    }
+    public int ageCalculator(){
+        int birthDate = new Date(getBirthDate()).getYear()+1900;
+        int current = LocalDate.now().getYear();
+        return current-birthDate;
+
     }
 
 
